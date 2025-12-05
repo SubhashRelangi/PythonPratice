@@ -70,14 +70,24 @@ center_X, center_Y = img_H//2, img_W//2
 
 # cv2.imshow('ellipse Image',imageEllipse)
 
+# DRAWING HALF - ELLIPSE TO THE IMAGE
+# halfEllipse = image.copy()
+# Ellipse_center = (center_Y, center_X)
+# axis1 = (100, 50)
 
-halfEllipse = image.copy()
-Ellipse_center = (center_Y, center_X)
-axis1 = (100, 50)
+# cv2.ellipse(halfEllipse, Ellipse_center, axis1, 0, 180, 360, (255, 0, 0), 2)
+# cv2.ellipse(halfEllipse, Ellipse_center, axis1, 0, 0, 180, (0, 255, 0), -1)
 
-cv2.ellipse(halfEllipse, Ellipse_center, axis1, 0, 180, 360, (255, 0, 0), 2)
-cv2.ellipse(halfEllipse, Ellipse_center, axis1, 0, 0, 180, (0, 255, 0), -1)
+# cv2.imshow("Half-Ellipse Image", halfEllipse)
 
-cv2.imshow("Half-Ellipse Image", halfEllipse)
+image_Text = image.copy()
+text = "I AM A HAPPY BIRD."
+
+org = (50, 200)
+
+cv2.putText(image_Text, text, org, fontFace=cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, fontScale=0.5, color=(0, 0, 0))
+
+cv2.imshow("Image Having Text", image_Text)
+
 cv2.waitKey(0)
 cv2.destroyAllWindows()
