@@ -31,5 +31,16 @@ if image is None:
 # radius = 100
 
 # cv2.circle(image_circle, circle_center, radius=radius,color=(0, 0, 0), thickness=-1, lineType=cv2.LINE_AA)
-# cv2.imshow("Image Circle Image", image_circle)
+# cv2.imshow("Circle Image", image_circle)
+
+# DRAWING RECTANGLE TO THE IMAGE
+
+image_rectangle = image.copy()
+start = (300,115)
+end = (475,225)
+
+cv2.rectangle(image_rectangle, start, end, color=(0, 0, 0), thickness=2, lineType=cv2.LINE_AA)
+
+
+cv2.imshow("Image Having Rectangle", image_rectangle)
 cv2.waitKey(0)
