@@ -55,18 +55,29 @@ center_X, center_Y = img_H//2, img_W//2
 # cv2.imshow("Image Having Rectangle", image_rectangle)
 
 # DRAWING ELLIPSE TO THE IMAGE
-imageEllipse = image.copy()
+# imageEllipse = image.copy()
 
-ellipse_center = (center_Y, center_X)
+# ellipse_center = (center_Y, center_X)
 
-axis1 = (100,50)
-axis2 = (125,50)
+# ((100, 50) are the lenght of horizontal and vertical axis of ellipse)
+# axis1 = (100,50)
+# axis2 = (125,50)
 
 
-cv2.ellipse(imageEllipse, ellipse_center, axis1, 0, 0, 360, (255, 0, 0), thickness=-1)
+# cv2.ellipse(imageEllipse, ellipse_center, axis1, 0, 0, 360, (255, 0, 0), thickness=-1)
 
-cv2.ellipse(imageEllipse, ellipse_center, axis2, 90, 0, 360, (0, 0, 255), thickness=-1)
+# cv2.ellipse(imageEllipse, ellipse_center, axis2, 90, 0, 360, (0, 0, 255), thickness=-1)
 
-cv2.imshow('ellipse Image',imageEllipse)
+# cv2.imshow('ellipse Image',imageEllipse)
+
+
+halfEllipse = image.copy()
+Ellipse_center = (center_Y, center_X)
+axis1 = (100, 50)
+
+cv2.ellipse(halfEllipse, Ellipse_center, axis1, 0, 180, 360, (255, 0, 0), 2)
+cv2.ellipse(halfEllipse, Ellipse_center, axis1, 0, 0, 180, (0, 255, 0), -1)
+
+cv2.imshow("Half-Ellipse Image", halfEllipse)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
