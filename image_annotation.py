@@ -36,11 +36,21 @@ if image is None:
 # DRAWING RECTANGLE TO THE IMAGE
 
 image_rectangle = image.copy()
-start = (300,115)
-end = (475,225)
 
-cv2.rectangle(image_rectangle, start, end, color=(0, 0, 0), thickness=2, lineType=cv2.LINE_AA)
+height, width = image.shape[:2]
 
+rect_width = 200
+rect_height = 100
+
+center_x = width // 2
+center_y = height // 2
+
+x1 = center_x - rect_width // 2
+y1 = center_y - rect_height // 2
+x2 = center_x + rect_width // 2
+y2 = center_y + rect_height // 2
+
+cv2.rectangle(image_rectangle, (x1, y1), (x2, y2), (0,255,0), -1)
 
 cv2.imshow("Image Having Rectangle", image_rectangle)
 cv2.waitKey(0)
