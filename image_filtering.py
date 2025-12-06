@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-image = cv2.imread("images/url0.png")
+image = cv2.imread("images/4kimage.jpeg")
 
 if image is None:
     print("Could not read image.")
@@ -79,11 +79,11 @@ if image is None:
 
 # APPLYING SHARPEN EFFECT TOT THE IMAGE USING BILATERALFILTER() METHOD
 
-bilateral_filter = cv2.bilateralFilter(src=image, d=9, sigmaColor=75, sigmaSpace=75)
+bilateral_filter = cv2.bilateralFilter(src=image, d=-10, sigmaColor=10, sigmaSpace=10)
  
 cv2.imshow('Original', image)
 cv2.imshow('Bilateral Filtering', bilateral_filter)
  
 cv2.waitKey(0)
-cv2.imwrite('bilateral_filtering.jpg', bilateral_filter)
+# cv2.imwrite('bilateral_filtering.jpg', bilateral_filter)
 cv2.destroyAllWindows()

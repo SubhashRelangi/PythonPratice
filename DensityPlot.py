@@ -7,7 +7,7 @@ from matplotlib.colors import LogNorm
 B = np.array([])
 G = np.array([])
 R = np.array([])
-im = cv2.imread(fi)
+im = cv2.imread("images/cube.png")
 
 b = im[:,:,0]
 b = b.reshape(b.shape[0]*b.shape[1])
