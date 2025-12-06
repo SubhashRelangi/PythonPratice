@@ -25,3 +25,5 @@ plt.xlabel('B')
 plt.ylabel('G')
 plt.xlim([0,255])
 plt.ylim([0,255])
+
+

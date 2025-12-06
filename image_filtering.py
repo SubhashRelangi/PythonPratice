@@ -53,13 +53,37 @@ if image is None:
 
 #APPLYING BLUR EFFECT USING MEdianBlur() METHOD
 
-median = cv2.medianBlur(src=image, ksize=5)
+# median = cv2.medianBlur(src=image, ksize=5)
+ 
+# cv2.imshow('Original', image)
+# cv2.imshow('Median Blurred', median)
+     
+# cv2.waitKey()
+# cv2.imwrite('median_blur.jpg', median)
+
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
+
+#APPLYING SHARPEN EFFECT TO THE IMAGES USING FILTER2D() METHOD
+# kernel3 = np.array([[0, -1,  0],
+#                    [-1,  5, -1],
+#                     [0, -1,  0]])
+# sharp_img = cv2.filter2D(src=image, ddepth=-1, kernel=kernel3)
+ 
+# cv2.imshow('Original', image)
+# cv2.imshow('Sharpened', sharp_img)
+     
+# cv2.waitKey(0)
+# cv2.imwrite('images/sharp_image.jpg', sharp_img)
+# cv2.destroyAllWindows()
+
+# APPLYING SHARPEN EFFECT TOT THE IMAGE USING BILATERALFILTER() METHOD
+
+bilateral_filter = cv2.bilateralFilter(src=image, d=9, sigmaColor=75, sigmaSpace=75)
  
 cv2.imshow('Original', image)
-cv2.imshow('Median Blurred', median)
-     
-cv2.waitKey()
-cv2.imwrite('median_blur.jpg', median)
-
+cv2.imshow('Bilateral Filtering', bilateral_filter)
+ 
 cv2.waitKey(0)
+cv2.imwrite('bilateral_filtering.jpg', bilateral_filter)
 cv2.destroyAllWindows()
