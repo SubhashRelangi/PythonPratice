@@ -1,45 +1,27 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-
-img = cv2.imread("images/url0.png")   
-print(img.shape)
-
-img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-
-plt.imshow(img_rgb)
-plt.title("Original Image (RGB)")
-plt.axis("off")
-plt.savefig("img_rgb.png")
-
-gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-
-plt.imshow(gray, cmap="gray")
-plt.title("Grayscale")
-plt.axis("off")
-plt.savefig("img_gray.png")
-
-blur = cv2.GaussianBlur(gray, (5, 5), 0)
-edges = cv2.Canny(gray, 100, 200)
-
-plt.figure(figsize=(10, 4))
-
-plt.subplot(1, 3, 1)
-plt.imshow(img_rgb)
-plt.title("Original")
-plt.axis("off")
-
-plt.subplot(1, 3, 2)
-plt.imshow(blur, cmap="gray")
-plt.title("Blurred")
-plt.axis("off")
-
-plt.subplot(1, 3, 3)
-plt.imshow(edges, cmap="gray")
-plt.title("Edges")
-plt.axis("off")
-
-plt.tight_layout()
-plt.savefig("Resultimage.png")
+from matplotlib.colors import LogNorm
 
 
+B = np.array([])
+G = np.array([])
+R = np.array([])
+im = cv2.imread(fi)
+
+b = im[:,:,0]
+b = b.reshape(b.shape[0]*b.shape[1])
+g = im[:,:,1]
+g = g.reshape(g.shape[0]*g.shape[1])
+r = im[:,:,2]
+r = r.reshape(r.shape[0]*r.shape[1])
+B = np.append(B,b)
+G = np.append(G,g)
+R = np.append(R,r)
+
+nbins = 10
+plt.hist2d(B, G, bins=nbins, norm=LogNorm())
+plt.xlabel('B')
+plt.ylabel('G')
+plt.xlim([0,255])
+plt.ylim([0,255])
